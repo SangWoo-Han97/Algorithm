@@ -17,10 +17,10 @@ public class ID_2527 {
 			Square second = new Square(st);
 			if (compareD(first, second)) {
 				bw.write("d");
-			} else if (compareB(first, second)) {
-				bw.write("b");
 			} else if (compareC(first, second)) {
 				bw.write("c");
+			} else if (compareB(first, second)) {
+				bw.write("b");
 			} else {
 				bw.write("a");
 			}
@@ -33,10 +33,7 @@ public class ID_2527 {
 	}
 
 	public static boolean compareB(Square first, Square second) {
-		// if ((first.q == second.y ) || (first.p == second.x) || (first.x == second.p)
-		// || (first.y == second.q)) {
-		if ((first.p == second.x && first.q != second.y) || (first.x == second.p && first.q != second.y)
-				|| (first.p != second.x && first.y == second.q) || (first.x != second.p && first.y == second.q)) {
+		if ((first.q == second.y) || (first.p == second.x) || (first.x == second.p) || (first.y == second.q)) {
 			return true;
 		}
 		return false;
