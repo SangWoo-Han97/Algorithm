@@ -7,30 +7,17 @@ package example;
  */
 
 public class Subset {
+	static int N = 5;
+	static int[] arr = { 1, 2, 3, 4, 5 };
+
 	public static void main(String[] args) {
-		int arr[] = { -1, 3, -9, 6, 7, -6, 1, 5, 4, -2 };
-		int sum;
-		int count = 0;
-
-		for (int i = 1; i < (1 << 10); i++) {
-			// i가 1부터 시작하는 이유는?
-			// -> 공집합은 제외 (공집합일 경우 합이 0임)
-			sum = 0;
-			for (int j = 0; j < 10; j++) {
-				if ((i & (1 << j)) != 0) {
-					sum += arr[j];
+		for (int i = 1; i < (1 << N); i++) {
+			for(int j = 0; j<N; j++) {
+				if((i & (1 << j)) != 0) {
+					System.out.print(arr[j] + " ");
 				}
 			}
-
-			if (sum == 0) {
-				System.out.printf("[ %d ] ", ++count);
-				for (int j = 0; j < 10; j++) {
-					if ((i & (1 << j)) != 0) {
-						System.out.printf("%d ", arr[j]);
-					}
-				}
-				System.out.println();
-			}
+			System.out.println();
 		}
 	}
 }
